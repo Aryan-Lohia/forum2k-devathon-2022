@@ -1,0 +1,793 @@
+MyScreens:
+    StartPage:
+        id:start
+        name:'start'
+    HomePage:
+        id:home
+        name:'home'
+    AddEventsPage:
+        id:events
+        name:'events'
+    ContactPage:
+        id:contact
+        name:'contact'
+    ImageSelectionPage:
+        id:selection
+        name:'selection'
+    Content:
+        id:login
+        name:'login'
+    AdminSettings:
+        id:admin
+        name:'admin'
+    DeleteEvent:
+        id:delete
+        name:'delete'
+    EventError:
+        id:eventerror
+        name:'eventerror'
+    DeleteDialog:
+        id:deletedialog
+        name:'deletedialog'
+    EditEventsPage:
+        id:editevents
+        name:"editevents"
+    EditEventForm:
+        id:editform
+        name:"editform"
+    EditSelection:
+        id:editselection
+        name:'editselection'
+<StartPage>:
+    MDScreen:
+        size_hint:None,None
+        size:320,500
+        pos_hint:{"center_x":0.5,"center_y":0.5}
+        md_bg_color: 0, 0, 0, 1
+        Image:
+            id: logo1
+            color:1,1,1,0
+            source: "assets/noheadlogo.jpg"
+            size_hint:None,None
+            size:250,250
+            pos_hint:{"center_x":0.5,"center_y":0.5}
+        Image:
+            id: logo2
+            color:1,1,1,0
+            source: "assets/head.jpg"
+            size_hint:None,None
+            size:200,200
+            pos_hint:{"center_x":0.53,"center_y":0.435}
+
+<HomePage>:
+    MDScreen:
+        size_hint:None,None
+        size:300,500
+        pos_hint:{"center_x":0.5,"center_y":0.5}
+        md_bg_color: 24/255, 23/255, 24/255, .8
+        MDBoxLayout:
+            orientation:'vertical'
+            MDCard:
+                size_hint:None,None
+                size:300,60
+                pos_hint:{"center_x":0.5,"top":1}
+                elevation: 30
+                md_bg_color: 0, 0, 0, .6
+                MDIconButton:
+                    icon: "assets/homebutton.png"
+                    pos_hint: {"center_x": .5, "center_y": .46}
+                    user_font_size: "42dp"
+                    on_release:app.gotohome()
+                MDLabel:
+                    markup:True
+                    text:"[color=#ffffffcc][font=Roboto-Regular]  FORUM2K"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    md_background_normal:""
+                    font_style:'H6'
+            MDBottomNavigation:
+                id:nav
+                panel_color: 0, 0, 0, .8
+                MDBottomNavigationItem:
+                    name: 'screen 1'
+                    text: 'Home'
+                    icon: 'home'
+                    MDCard:
+                        size_hint:None,None
+                        size:300,390
+                        pos_hint:{"center_x":0.5,"center_y":0.49}
+                        elevation: 30
+                        spacing:25
+                        padding:15,0
+                        orientation:"vertical"
+                        md_bg_color: 1, 1, 1, .5
+                        canvas.before:
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                                source: 'assets/background.jpg'
+                        ScrollView:
+                            do_scroll_x: False
+                            do_scroll_y: True
+                            MDFloatLayout:
+                                size_hint:None,None
+                                size:320,880
+                                pos_hint:{"center_x":0.5,"center_y":0.5}
+                                Image:
+                                    id: logo
+                                    source: "assets/logo.jpg"
+                                    size_hint:None,None
+                                    size:250,250
+                                    pos_hint:{"center_x":0.42,"center_y":0.84}
+                                MDCard:
+                                    size_hint:None,None
+                                    size:250,250
+                                    elevation:40
+                                    radius:9
+                                    md_bg_color:0,0,0,1
+                                    padding:(10,20)
+                                    orientation:'vertical'
+                                    pos_hint:{"center_x":0.42,"center_y":0.63}
+                                    MDFloatLayout:
+                                        size_hint:1,1
+                                        MDLabel:
+                                            markup:True
+                                            text: "[color=#b67ade][b]Forum2K[/b][/color][color=#ffffffd9] is a student body under Department of Information Technology, Sikkim Manipal Institute of Technology based in Sikkim, India.[/color]"
+                                            halign: "center"
+                                            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+                                        MDRaisedButton:
+                                            markup:True
+                                            text: '[b]Join Us[/b]'
+                                            pos_hint: {'center_x': 0.5, 'center_y': 0.15}
+                                            elevation:50
+                                            on_release:app.openlink("https://linktr.ee/forum2k")
+                                MDCard:
+                                    size_hint:None,None
+                                    size:250,250
+                                    elevation:40
+                                    radius:9
+                                    md_bg_color:0,0,0,1
+                                    padding:(10,5)
+                                    orientation:'vertical'
+                                    pos_hint:{"center_x":0.42,"center_y":.338}
+                                    MDFloatLayout:
+                                        size_hint:1,1
+                                        MDLabel:
+                                            markup:True
+                                            text: "\n\n[color=#f52891][b]ABOUT US[/b][/color][color=#ffffffd9] \n\n We, at [color=#7f11e0][b]Forum2K[/b][/color], firmly believe that teamwork makes the dream work. Therefore, we organise plenty of events such as hackathons, seminars and competitions to inculcate healthy academic relationships.[/color]"
+                                            halign: "center"
+                                            pos_hint:{"center_x":0.5,"center_y":0.6}
+                                MDCard:
+                                    size_hint:None,None
+                                    size:250,100
+                                    elevation:40
+                                    radius:9
+                                    md_bg_color:0,0,0,1
+                                    padding:(10,5)
+                                    orientation:'vertical'
+                                    pos_hint:{"center_x":0.42,"center_y":0.13}
+                                    MDLabel:
+                                        markup:True
+                                        text: "[color=#f52891][b]JOIN THE FORUM TODAY![/b][/color][color=#ffffffd9][/color]"
+                                        halign: "center"
+                                        pos_hint:{"center_x":0.5,"center_y":0.6}
+
+                MDBottomNavigationItem:
+                    name: 'screen 2'
+                    text: 'Events'
+                    icon: 'calendar-star'
+                    MDCard:
+                        size_hint:None,None
+                        size:300,390
+                        pos_hint:{"center_x":0.5,"center_y":0.49}
+                        elevation: 30
+                        spacing:25
+                        padding:15,0
+                        orientation:"vertical"
+                        md_bg_color: 1, 1, 1, 1
+                        canvas.before:
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                                source: 'assets/events.jpg'
+                        ScrollView:
+                            do_scroll_x: False
+                            do_scroll_y: True
+                            MDBoxLayout:
+                                id:eventbox
+                                orientation:"vertical"
+                                spacing:10
+                                size_hint:None,None
+                                size:320,300
+
+                MDBottomNavigationItem:
+                    name: 'screen 3'
+                    text: 'Contact'
+                    icon: 'phone'
+                    MDCard:
+                        size_hint:None,None
+                        size:300,390
+                        pos_hint:{"center_x":0.5,"center_y":0.49}
+                        elevation: 30
+                        spacing:25
+                        padding:15,0
+                        orientation:"vertical"
+                        md_bg_color: 1,1,1,0.6
+                        canvas.before:
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                                source: 'assets/smitlogo.jpg'
+                        ScrollView:
+                            do_scroll_x: False
+                            do_scroll_y: True
+                            MDBoxLayout:
+                                id:contactbox
+                                orientation:"vertical"
+                                spacing:10
+                                size_hint:None,None
+                                size:320,800
+                                padding:10,10
+                                MDCard:
+                                    size_hint:None,None
+                                    size:250,550
+                                    elevation:40
+                                    radius:9
+                                    md_bg_color:1,1,1,0.4
+                                    padding:(30,30)
+                                    orientation:'vertical'
+                                    MDFloatLayout:
+                                        spacing:30
+                                        padding:30,30
+                                        halign:'center'
+                                        MDLabel:
+                                            text:"CONTACT US:"
+                                            font_style:"H5"
+                                            pos_hint:{"center_x":0.5,"center_y":0.95}
+                                        MDTextField:
+                                            id:name
+                                            hint_text:"Name"
+                                            mode:"fill"
+                                            fill_color:0,0,0,0.5
+                                            size_hint:None,None
+                                            size:200,10
+                                            pos_hint:{"center_x":0.5,"center_y":0.8}
+                                        MDTextField:
+                                            id:contact
+                                            hint_text:"Contact No"
+                                            mode:"fill"
+                                            fill_color:0,0,0,0.5
+                                            size_hint:None,None
+                                            size:200,10
+                                            pos_hint:{"center_x":0.5,"center_y":0.65}
+                                        MDTextField:
+                                            id:email
+                                            hint_text:"Email ID"
+                                            mode:"fill"
+                                            size_hint:None,None
+                                            size:200,10
+                                            fill_color:0,0,0,0.5
+                                            pos_hint:{"center_x":0.5,"center_y":0.5}
+                                        MDTextField:
+                                            id:query
+                                            hint_text:"Your Query"
+                                            mode:"fill"
+                                            size_hint:None,0.30
+                                            size:200,100
+                                            fill_color:0,0,0,0.5
+                                            pos_hint:{"center_x":0.5,"center_y":0.25}
+                                        MDRaisedButton:
+                                            markup:True
+                                            text: '[b]Submit[/b]'
+                                            elevation:20
+                                            pos_hint:{'center_x':0.5,"center_y":0.05}
+                                            on_release:app.enterquery()
+                                MDCard:
+                                    size_hint:None,None
+                                    size:250,200
+                                    elevation:40
+                                    radius:9
+                                    md_bg_color:1,1,1,0.4
+                                    padding:(30,30)
+                                    orientation:'vertical'
+                                    MDFloatLayout:
+                                        spacing:30
+                                        padding:30,30
+                                        halign:'center'
+                                        Image:
+                                            source:"assets/smitroundlogo.png"
+                                            pos_hint:{'center_x':0.5,"center_y":0.6}
+                                        MDIconButton:
+                                            icon:"facebook"
+                                            user_font_size:"34sp"
+                                            pos_hint:{'center_x':0.1,"center_y":-0.03}
+                                            on_release:app.openlink("https://www.facebook.com/dept.it.smit")
+                                        MDIconButton:
+                                            icon:"instagram"
+                                            user_font_size:"34sp"
+                                            pos_hint:{'center_x':0.35,"center_y":-0.03}
+                                            on_release:app.openlink("https://www.instagram.com/dept_it_smit/")
+                                        MDIconButton:
+                                            icon:"linkedin"
+                                            user_font_size:"34sp"
+                                            pos_hint:{'center_x':0.6,"center_y":-0.03}
+                                            on_release:app.openlink("https://www.linkedin.com/company/forum2k-smit/")
+                                        MDIconButton:
+                                            icon:"gmail"
+                                            user_font_size:"34sp"
+                                            pos_hint:{'center_x':0.85,"center_y":-0.03}
+                                            on_release:app.openlink("https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=forum2k.deptit.smit@gmail.com")
+                MDBottomNavigationItem:
+                    name: 'screen 4'
+                    text: 'Admin'
+                    icon: 'pac-man'
+                    MDCard:
+                        size_hint:None,None
+                        size:300,390
+                        pos_hint:{"center_x":0.5,"center_y":0.49}
+                        elevation: 30
+                        spacing:25
+                        padding:15,0
+                        orientation:"vertical"
+                        md_bg_color: 1, 1, 1, 1
+                        canvas.before:
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                                source: 'assets/adminbg.jpg'
+                        ScrollView:
+                            do_scroll_x: False
+                            do_scroll_y: False
+                            MDBoxLayout:
+                                orientation:"vertical"
+                                spacing:10
+                                size_hint:None,None
+                                size:320,300
+                                MDCard:
+                                    size_hint:None,None
+                                    size:250,250
+                                    elevation:40
+                                    radius:9
+                                    md_bg_color:0,0,0,0.4
+                                    padding:(20,30)
+                                    orientation:'vertical'
+                                    MDFloatLayout:
+                                        spacing:30
+                                        padding:30,30
+                                        orientation:"vertical"
+                                        halign:'center'
+                                        MDRoundFlatButton:
+                                            pos_hint:{"center_x":0.5,"center_y":0.5}
+                                            text: "LOGIN"
+                                            text_color: 0, 1, 0, 1
+                                            halign:'center'
+                                            on_release:app.show_confirmation_dialog()
+<AddEventsPage>:
+    MDScreen:
+        size_hint:None,None
+        size:300,500
+        pos_hint:{"center_x":0.5,"center_y":0.5}
+        md_bg_color: 24/255, 23/255, 24/255, .8
+        MDBoxLayout:
+            orientation:'vertical'
+            spacing:10
+            MDCard:
+                size_hint:None,None
+                size:300,60
+                pos_hint:{"center_x":0.5,"top":1}
+                elevation: 30
+                md_bg_color: 0, 0, 0, .6
+                MDIconButton:
+                    icon: "assets/homebutton.png"
+                    pos_hint: {"center_x": .5, "center_y": .46}
+                    user_font_size: "42dp"
+                    on_release:app.gotohome()
+                MDLabel:
+                    markup:True
+                    text:"[color=#ffffffcc][font=Roboto-Regular]  FORUM2K"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    md_background_normal:""
+                    font_style:'H6'
+            MDCard:
+                id:add_event
+                size_hint:None,None
+                size:250,435
+                elevation:40
+                radius:9
+                spacing:10
+                md_bg_color:1,1,1,0.8
+                padding:(10,20)
+                orientation:'vertical'
+                pos_hint:{"center_x":0.5}
+                MDRoundFlatIconButton:
+                    icon: "left-arrow"
+                    text: "Go Back"
+                    on_release:app.gotohome()
+                MDLabel:
+                    text:"Add Event"
+                    font_style:"H5"
+                MDLabel:
+                    id:error
+                    text:"Image file should be in jpg or png format"
+                    color:1,0,0,1
+                    theme_text_color:"Error"
+                MDTextField:
+                    id:event_name
+                    hint_text: "Event Name*"
+                MDTextField:
+                    id:event_description
+                    hint_text: "Event Description(15 words max)*"
+                MDTextField:
+                    id:link
+                    hint_text: "Follow-up link"
+                MDCard:
+                    elevation:0
+                    padding:0
+                    orientation:"vertical"
+                    MDLabel:
+                        markup:True
+                        text:"Upload Image:[sup][color=#ff0000cc]*[/sup]\n"
+                    MDRaisedButton:
+                        markup:True
+                        text: 'Choose File'
+                        elevation:20
+                        on_press:app.gotoselection()
+                MDRaisedButton:
+                    markup:True
+                    text: '[b]Submit[/b]'
+                    elevation:20
+                    pos_hint:{'center_x':0.5}
+                    on_release:
+                        app.verifyevent()
+<ImageSelectionPage>:
+    MDScreen:
+        size_hint:None,None
+        size:300,500
+        pos_hint:{"center_x":0.5,"center_y":0.5}
+        md_bg_color: 24/255, 23/255, 24/255, .8
+        MDBoxLayout:
+            id:box
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding:20
+                FileChooser:
+                    id: fc
+                    FileChooserIconLayout:
+                MDRaisedButton:
+                    markup:True
+                    text: '[b]Select[/b]'
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.15}
+                    elevation:50
+                    on_release:
+                        app.verifyimage()
+                        app.gotoevent1()
+
+<Content>
+    orientation: "vertical"
+    spacing: "12dp"
+    size_hint_y: None
+    height: "120dp"
+    MDBoxLayout:
+        orientation: "vertical"
+        MDLabel:
+            id:error
+            color:1,0,0,1
+            theme_text_color:"Error"
+            text:"\n"
+        MDTextField:
+            id:userid
+            hint_text: "Username"
+        MDTextField:
+            id:passwd
+            hint_text: "Password"
+<AdminSettings>
+    MDScreen:
+        MDCard:
+            size_hint:None,None
+            size:300,500
+            pos_hint:{"center_x":0.5,"center_y":0.5}
+
+            canvas.before:
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                    source: 'assets/adminbg.jpg'
+            MDFloatLayout:
+                MDCard:
+                    size_hint:None,None
+                    size:250,435
+                    elevation:40
+                    radius:9
+                    spacing:10
+                    md_bg_color:0,0,0,0.8
+                    padding:(10,20)
+                    orientation:'vertical'
+                    pos_hint:{"center_x":0.5,"center_y":0.5}
+                    MDFloatLayout:
+                        MDRoundFlatIconButton:
+                            pos_hint:{"center_x":0.2,"center_y":0.95}
+                            icon: "left-arrow"
+                            text: "Go Back"
+                            on_release:app.gotohome()
+                        MDRoundFlatButton:
+                            pos_hint:{"center_x":0.5,"center_y":0.7}
+                            text: "ADD EVENT"
+                            font_size:14
+                            text_color: 1, 1, 1, 1
+                            halign:'center'
+                            on_release:app.gotoevent1()
+                        MDRoundFlatButton:
+                            pos_hint:{"center_x":0.5,"center_y":0.55}
+                            text: "DELETE EVENT"
+                            font_size:14
+                            text_color: 1, 1, 1, 1
+                            halign:'center'
+                            on_release:app.deleteevent()
+                        MDRoundFlatButton:
+                            pos_hint:{"center_x":0.5,"center_y":0.4}
+                            text: "EDIT EVENT"
+                            text_color: 1, 1, 1, 1
+                            halign:'center'
+                            on_release:app.gotoedit()
+<DeleteDialog>
+    orientation: "vertical"
+    spacing: "12dp"
+    size_hint_y: None
+    height: "120dp"
+    MDLabel:
+
+<DeleteEvent>
+    MDScreen:
+        size_hint:None,None
+        size:300,500
+        pos_hint:{"center_x":0.5,"center_y":0.5}
+        md_bg_color: 24/255, 23/255, 24/255, .8
+        MDBoxLayout:
+            orientation:'vertical'
+
+            MDCard:
+                size_hint:None,None
+                size:300,60
+                pos_hint:{"center_x":0.5,"top":1}
+                elevation: 30
+                md_bg_color: 0, 0, 0, .6
+
+                MDIconButton:
+                    icon: "assets/homebutton.png"
+                    pos_hint: {"center_x": .5, "center_y": .46}
+                    user_font_size: "42dp"
+                    on_release:app.gotohome()
+                MDLabel:
+                    markup:True
+                    text:"[color=#ffffffcc][font=Roboto-Regular]  FORUM2K"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    md_background_normal:""
+                    font_style:'H6'
+            MDCard:
+                size_hint:None,None
+                size:300,440
+                pos_hint:{"center_x":0.5,"center_y":0.49}
+                elevation: 30
+                spacing:25
+                padding:10,0
+                orientation:"vertical"
+                md_bg_color: 1, 1, 1, 1
+                canvas.before:
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                        source: 'assets/adminbg.jpg'
+                ScrollView:
+                    do_scroll_x: False
+                    do_scroll_y: True
+                    MDBoxLayout:
+                        id:deleteeventbox
+                        orientation:"vertical"
+                        spacing:10
+                        size_hint:None,None
+                        size:250,180
+                        padding:(20,0)
+                        MDCard:
+                            size_hint:None,None
+                            size:250,130
+                            elevation:40
+                            radius:9
+                            md_bg_color:1,1,1,1
+                            padding:(10,20)
+                            orientation:'vertical'
+                            MDFloatLayout:
+                                MDRoundFlatIconButton:
+                                    pos_hint: {'center_x': .2, 'center_y': .95}
+                                    icon: "left-arrow"
+                                    text: "Go Back"
+                                    on_release:app.gotohome()
+
+                                MDLabel:
+                                    pos_hint: {'center_x': .5, 'center_y': 0.2}
+                                    text:"Please select event to be deleted:"
+                                    font_style:"Subtitle1"
+                                    theme_text_color:'Secondary'
+<EventError>
+    orientation: "vertical"
+    spacing: "12dp"
+    size_hint_y: None
+    height: "120dp"
+    MDLabel:
+        text:"No Events found!"
+<EditEventsPage>
+    MDScreen:
+        size_hint:None,None
+        size:300,500
+        pos_hint:{"center_x":0.5,"center_y":0.5}
+        md_bg_color: 24/255, 23/255, 24/255, .8
+        MDBoxLayout:
+            orientation:'vertical'
+            MDCard:
+                size_hint:None,None
+                size:300,60
+                pos_hint:{"center_x":0.5,"top":1}
+                elevation: 30
+                md_bg_color: 0, 0, 0, .6
+
+                MDIconButton:
+                    icon: "assets/homebutton.png"
+                    pos_hint: {"center_x": .5, "center_y": .46}
+                    user_font_size: "42dp"
+                    on_release:app.gotohome()
+                MDLabel:
+                    markup:True
+                    text:"[color=#ffffffcc][font=Roboto-Regular]  FORUM2K"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    md_background_normal:""
+                    font_style:'H6'
+            MDCard:
+                size_hint:None,None
+                size:300,440
+                pos_hint:{"center_x":0.5,"center_y":0.49}
+                elevation: 30
+                spacing:25
+                padding:10,0
+                orientation:"vertical"
+                md_bg_color: 1, 1, 1, 1
+                canvas.before:
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                        source: 'assets/adminbg.jpg'
+                ScrollView:
+                    do_scroll_x: False
+                    do_scroll_y: True
+                    MDBoxLayout:
+                        id:editeventbox
+                        orientation:"vertical"
+                        spacing:10
+                        size_hint:None,None
+                        size:250,180
+                        padding:(20,0)
+
+<EditEventForm>
+    MDScreen:
+        size_hint:None,None
+        size:300,500
+        pos_hint:{"center_x":0.5,"center_y":0.5}
+        md_bg_color: 24/255, 23/255, 24/255, .8
+        MDBoxLayout:
+            orientation:'vertical'
+            spacing:10
+            MDCard:
+                size_hint:None,None
+                size:300,60
+                pos_hint:{"center_x":0.5,"top":1}
+                elevation: 30
+                md_bg_color: 0, 0, 0, .6
+                MDIconButton:
+                    icon: "assets/homebutton.png"
+                    pos_hint: {"center_x": .5, "center_y": .46}
+                    user_font_size: "42dp"
+                    on_release:app.gotohome()
+                MDLabel:
+                    markup:True
+                    text:"[color=#ffffffcc][font=Roboto-Regular]  FORUM2K"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    md_background_normal:""
+                    font_style:'H6'
+            ScrollView:
+                do_scroll_x: False
+                do_scroll_y: True
+                MDBoxLayout:
+                    id:editform
+                    orientation:"vertical"
+                    spacing:10
+                    size_hint:None,None
+                    size:320,730
+                    padding:5,5
+                    MDCard:
+                        id:edit_event
+                        size_hint:None,None
+                        size:250,700
+                        elevation:40
+                        radius:9
+                        spacing:1
+                        md_bg_color:1,1,1,0.8
+                        padding:(20,30)
+                        orientation:'vertical'
+                        pos_hint:{"center_x":0.46}
+                        MDFloatLayout:
+                            MDRoundFlatIconButton:
+                                icon: "left-arrow"
+                                text: "Go Back"
+                                pos_hint:{'center_x':0.2,"center_y":1}
+                                on_release:app.gotoadmin()
+                            MDLabel:
+                                text:"Edit Event"
+                                font_style:"H5"
+                                pos_hint:{'center_x':0.5,"center_y":0.925}
+                            MDLabel:
+                                id:error
+                                text:"Image file should be in jpg or png format"
+                                color:1,0,0,1
+                                pos_hint:{'center_x':0.5,"center_y":0.85}
+                                theme_text_color:"Error"
+                            MDTextField:
+                                id:event_name
+                                pos_hint:{'center_x':0.5,"center_y":0.75}
+                                hint_text: "Event Name*"
+                            MDTextField:
+                                id:event_description
+                                pos_hint:{'center_x':0.5,"center_y":0.65}
+                                hint_text: "Event Description(15 words max)*"
+                            MDTextField:
+                                id:link
+                                pos_hint:{'center_x':0.5,"center_y":0.55}
+                                hint_text: "Follow-up link"
+                            MDCard:
+                                elevation:0
+                                padding:0
+                                spacing:10
+                                pos_hint:{'center_x':0.5,"center_y":0.35}
+                                size_hint:1,0.3
+                                orientation:"vertical"
+                                MDLabel:
+                                    markup:True
+                                    text:"Uploaded Image:[sup][color=#ff0000cc]*[/sup]\n"
+                                Image:
+                                    id:uploaded
+
+                                MDRaisedButton:
+                                    markup:True
+                                    text: 'Change File'
+                                    elevation:20
+                                    on_press:app.gotoeditselection()
+                            MDRaisedButton:
+                                markup:True
+                                text: '[b]Submit[/b]'
+                                elevation:20
+
+                                pos_hint:{'center_x':0.5,"center_y":0.1}
+                                on_release:
+                                    app.verifyeditevent()
+<EditSelection>
+    MDScreen:
+        size_hint:None,None
+        size:300,500
+        pos_hint:{"center_x":0.5,"center_y":0.5}
+        md_bg_color: 24/255, 23/255, 24/255, .8
+        MDBoxLayout:
+            id:box
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding:20
+                FileChooser:
+                    id: fc
+                    FileChooserIconLayout:
+                MDRaisedButton:
+                    markup:True
+                    text: '[b]Select[/b]'
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.15}
+                    elevation:50
+                    on_release:
+                        app.verifyeditimage()
+                        app.gotoedit1()
+
+
+
+
